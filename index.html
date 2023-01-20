@@ -11,21 +11,24 @@
 <body>
 
     <!--BODY  START  -->
-    <div id="game-div">
+    <div id="container">
+      <div id="box-divs">
     <div id="game-heading">TIC TAC TOE </div>
-    <div id="intro-screen" class="center">
+    <div id="intro-screen" class="center contents">
+    <div class="welcome-message">Welcome to the game ! </div>
+
         <h2>Choose your symbol:</h2>
         <button type="button" id="choose-x" class="choose">X</button>
         <button type="button" id="choose-o" class="choose">O</button>
-      </div>
+    </div>
       
-      <div id="enemy-screen" class="center hidden">
+      <div id="enemy-screen" class="center hidden contents">
         <h2>Play against:</h2>
         <button type="button" id="choose-human" class="choose">Human</button>
         <button type="button" id="choose-cpu" class="choose">CPU</button>
       </div>
         
-      <div id="game-screen" class="center hidden">
+      <div id="game-screen" class="center hidden contents">
         <!-- Every cell has an id "cell" followed by cell row and cell column -->
         <table class="center">
           <tr>
@@ -65,7 +68,7 @@
         <button type="button" id="restart">Restart</button>
       <div>
     </div>
-
+  </div>
   <!-- Body end  -->
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
    <script src="script.js"></script>
