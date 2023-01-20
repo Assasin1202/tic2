@@ -13,15 +13,16 @@ body {
   animation: gradient 10s linear infinite;
   animation-direction: alternate;
 
+
 }
 
-/* #box-divs{
-  margin: 0;
+ #box-divs{
+  margin: 8vh auto;
   background-color: whitesmoke;
-  width: auto;
- /* padding: 2em; */
- /* border-radius: 3vh; */
-/* } */ 
+  width: fit-content;
+  padding: 2em; 
+  border-radius: 3vh;
+} 
 /* background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%); */
 @keyframes gradient {
   0% {background-position: 0%}
@@ -29,7 +30,7 @@ body {
 }
   #game-heading{
     text-align: center;
-    font-size: 8vh;
+    font-size: 8vmin;
     color: #32bac8;
     font-family: cursive;
     padding-bottom: 4% ;
@@ -42,7 +43,7 @@ body {
   }
 
 .welcome-message{
-    font-size: 2em;
+    font-size: 4vmin;
 }
 
 .contents{
@@ -57,22 +58,32 @@ body {
     text-align: center;  /* Centers h2 and buttons */
 
   }
+
+  #symbol-heading{
+    margin-top: 3vmin;
+    font-size: 3vmin;
+  }
   #enemy-screen h2,
   #intro-screen h2 {
     padding: 0 15px;  /* Prevent text from touching the edges of the screen */
   }
   #intro-screen button {
-    font-size: 3.4em;
+    font-size: 10vmin;
     padding: 3% 6%;  /* With "%" padding is based on container's width */
-    margin: 0 4%;  /* Create distance between buttons */
+    margin: 4% 4%;  /* Create distance between buttons */
   }
   #enemy-screen button {
     display: block;
     margin: 0.6em auto;
-    font-size: 1.9em;
+    font-size: 4vmin;
     padding: 0.2em 0.4em;
+    width: 45%;
   }
   
+  .play-icons{
+    width: 10vmin;
+    padding-left: 4%;
+  }
   /****** GAME GRID ******/
   
   
@@ -120,6 +131,55 @@ body {
     display: block;
   }
   
+.choose{
+  
+}
+
+.choose{
+  background:#1AAB8A;
+  color:#fff;
+  border:none;
+  position:relative;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+.choose:hover{
+  background:#fff;
+  color:#1AAB8A;
+}
+.choose:before,.choose:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}
+
+.choose {
+  border: none;
+  /* background-color: #ff9aff;
+  box-shadow: 0 0 5px #ef97e8; */
+}
+.choose:hover {
+   box-shadow: 0 0 10px #1AAB8A, 0 0 20px #1aab8c, 0 0 20px #fff inset;
+}
+/* button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+button:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+} */
+
   .choose,
   #restart {
     border-radius: 0.3em;
