@@ -306,4 +306,8 @@ button:hover:before,button:hover:after{
     .bottom-container{
       display: none;
     }
+    #container{
+      width: 110%;
+      height: 120%;
+    }
   }
