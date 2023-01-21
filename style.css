@@ -19,6 +19,7 @@ body {
 
  #box-divs{
   margin: 8vmin auto;
+  /* align-items: center; */
   background-color: #EAFDFC;
   width: fit-content;
   padding: 2em; 
@@ -61,7 +62,10 @@ body {
   transition: 800ms ease all;
 } */
 .welcome-message{
-    font-size: 4vmin;
+  margin-left: 2vmin;
+  display: flex;
+  align-content: center;
+    font-size: 3vmin;
     color: #05707b;
 }
 
@@ -104,6 +108,11 @@ body {
   .play-icons{
     width: 10vmin;
     padding-left: 4%;
+  }
+  .welcome-icon{
+    width: 1.2em;
+    height: 1.2em;
+    padding-left: 2%;
   }
   /****** GAME GRID ******/
   
@@ -252,4 +261,46 @@ button:hover:before,button:hover:after{
   }
   .cannotuse {
     cursor: not-allowed;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width:fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 5px 10px;
+    background-color: #333333;
+    color: #fff;
+    z-index: 40;
+    font-size: 1.7git vmin;
+  }
+  
+  .bottom-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .made-with, .by, .the-boyz {
+    margin-right: 10px;
+  }
+  
+
+
+  @media (max-width: 800px) {
+    /* .welcome-icon{
+      width: 0%;
+    } */
+    /* .welcome-message{
+      display: block;
+      margin: auto;
+    } */
+    #box-divs{
+      margin: 8vmin auto;
+    }
+    .bottom-container{
+      display: none;
+    }
   }
