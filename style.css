@@ -286,6 +286,9 @@ button:hover:before,button:hover:after{
   .made-with, .by, .the-boyz {
     margin-right: 10px;
   }
+  .the-boyz{
+    color: rgb(244, 117, 117);
+  }
   
 
 
