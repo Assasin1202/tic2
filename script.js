@@ -1,9 +1,9 @@
-// var playerSymbol;
-// var enemySymbol;
-// var win;  // TRUE if somebody won the game
-// var turn; // Number of the current turn
-// var row, column;  // Will contain "coordinates"for a specific cell
-// var cpuEnabled = true;  // Set this to false to play against a human
+var playerSymbol;
+var enemySymbol;
+var win;  // TRUE if somebody won the game
+var turn; // Number of the current turn
+var row, column;  // Will contain "coordinates"for a specific cell
+var cpuEnabled = true;  // Set this to false to play against a human
 
 $(document).ready(function() {
   // fadeIn(500);
