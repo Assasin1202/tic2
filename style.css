@@ -14,14 +14,16 @@ body {
   animation-direction: alternate;
 
 
+
 }
 
  #box-divs{
-  margin: 8vh auto;
-  background-color: whitesmoke;
+  margin: 8vmin auto;
+  background-color: #EAFDFC;
   width: fit-content;
   padding: 2em; 
   border-radius: 3vh;
+  font-family: 'Montserrat', sans-serif;
 } 
 /* background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%); */
 @keyframes gradient {
@@ -31,24 +33,41 @@ body {
   #game-heading{
     text-align: center;
     font-size: 8vmin;
-    color: #32bac8;
-    font-family: cursive;
-    padding-bottom: 4% ;
+    color: #4c4c4c;
+    font-weight: 600;
+    /* font-family: cursive; */
+    /* padding-bottom: 4% ; */  
 
   }
   #game-screen{
     /* display: block; */
-    width: fit-content;
-    padding: 5vh;
+    width: auto;
+    padding: 2vmin;
   }
+.glowing-line{
+  background: #6dc6e1;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #57c7c9;
+    height: 0.5vmin;
+    /* margin-top: 1vmin; */
+    margin: 1vmin auto;
+    display: flex;
+    width: 90%;
 
+    animation: glow 1s ease-in-out infinite alternate;
+}
+/* #game-heading:hover{
+  transform: scale(1.1);
+  transition: 800ms ease all;
+} */
 .welcome-message{
     font-size: 4vmin;
+    color: #05707b;
 }
 
 .contents{
  /* color: #32bac8; */
- background-color: whitesmoke;
+ background-color: #EAFDFC;
  padding: 2em;
  border-radius: 3vh;
 }
@@ -62,6 +81,7 @@ body {
   #symbol-heading{
     margin-top: 3vmin;
     font-size: 3vmin;
+    color: #05707b;
   }
   #enemy-screen h2,
   #intro-screen h2 {
@@ -71,6 +91,7 @@ body {
     font-size: 10vmin;
     padding: 3% 6%;  /* With "%" padding is based on container's width */
     margin: 4% 4%;  /* Create distance between buttons */
+    width: 33%;
   }
   #enemy-screen button {
     display: block;
@@ -101,17 +122,17 @@ body {
   }
   .cell {
     font-size: 3.4em;
-    font-size: 14vmin;  /* Responsive font size! Awesome! */
+    font-size: 11.8vmin;  /* Responsive font size! Awesome! */
     height: 100%;  /* Fill the container (td) */
     width: 100%;
-    background: antiquewhite;
+    background: #c9eff6;
     border-radius: 2vmax;
   }
   .wincell {
     background-color: #c88;  /* Red background to highlight the "winning" line */
   }
   .player-two {
-    color: #933;
+    color: rgb(35, 147, 91);
   }
   
   /****** BUTTONS ******/
@@ -129,6 +150,7 @@ body {
     /* Center horizontally */
     margin: 20px auto;
     display: block;
+    font-family: 'Montserrat';
   }
   
 .choose{
@@ -136,7 +158,7 @@ body {
 }
 
 .choose{
-  background:#1AAB8A;
+  background:#25cca5;
   color:#fff;
   border:none;
   position:relative;
@@ -145,10 +167,12 @@ body {
   cursor:pointer;
   transition:800ms ease all;
   outline:none;
+
+
 }
 .choose:hover{
   background:#fff;
-  color:#1AAB8A;
+  color:#25cca5;
 }
 .choose:before,.choose:after{
   content:'';
@@ -167,6 +191,7 @@ body {
   box-shadow: 0 0 5px #ef97e8; */
 }
 .choose:hover {
+  transform: scale(1.1);
    box-shadow: 0 0 10px #1AAB8A, 0 0 20px #1aab8c, 0 0 20px #fff inset;
 }
 /* button:after{
@@ -184,8 +209,27 @@ button:hover:before,button:hover:after{
   #restart {
     border-radius: 0.3em;
   }
-  .choose:active,
-  #restart:active {
+
+  #restart{
+    background-color: #ADA2FF; /* red background */
+    color: #fff; /* white text color */
+    margin-top: 1em;
+    padding: 10px 20px; /* button padding */
+    border: none; /* no border */
+    border-radius: 0.8em; /* rounded corners */
+    /* font-size: 18px; font size */
+    font-size: 1.5em;
+
+    cursor: pointer; /* cursor changes to a pointer on hover */
+  }
+
+  #restart:hover{
+    background-color: #5681ed; /* darker red background on hover */
+    transform: scale(1.1);
+    transition: 200ms ease-in-out ;
+
+  }
+  .choose:active {
     background-color: #ccc;  /* Darker color when the button is pressed */
   }
   

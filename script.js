@@ -6,17 +6,19 @@ var row, column;  // Will contain "coordinates"for a specific cell
 var cpuEnabled = true;  // Set this to false to play against a human
 
 $(document).ready(function() {
+  // fadeIn(500);
   // Intro screen buttons
   console.log("Hello");
   $("#choose-x").on("click", function() {
-    playerSymbol = "X";
-    enemySymbol = "O";
-    $("#intro-screen").fadeOut(300, showEnemyScreen);
+    playerSymbol = "𝒳";
+    enemySymbol = "𝒪";
+
+    $("#intro-screen").fadeOut(500, showEnemyScreen);
   });
   $("#choose-o").on("click", function() {
-    playerSymbol = "O";
-    enemySymbol = "X";
-    $("#intro-screen").fadeOut(300, showEnemyScreen);
+    playerSymbol = "𝒪";
+    enemySymbol = "𝒳";
+    $("#intro-screen").fadeOut(500, showEnemyScreen);
   });
   
   // Enemy screen buttons
