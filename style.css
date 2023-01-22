@@ -22,7 +22,8 @@ body {
   /* align-items: center; */
   background-color: #EAFDFC;
   width: fit-content;
-  padding: 2em; 
+  height: auto;
+  padding: 1vmin 2vmin;
   border-radius: 3vh;
   font-family: 'Montserrat', sans-serif;
 } 
@@ -61,6 +62,7 @@ body {
   transform: scale(1.1);
   transition: 800ms ease all;
 } */
+
 .welcome-message{
   margin-left: 2vmin;
   display: flex;
@@ -114,6 +116,14 @@ body {
     height: 1.2em;
     padding-left: 2%;
   }
+
+  #turn-indicator{
+    font-size: 1.5vmax;
+    text-align: center;
+    font-weight: 500;
+    color: #148c99;
+    padding-bottom: 0.5vmin;
+  }
   /****** GAME GRID ******/
   
   
@@ -162,10 +172,6 @@ body {
     font-family: 'Montserrat';
   }
   
-.choose{
-  
-}
-
 .choose{
   background:#25cca5;
   color:#fff;
@@ -243,11 +249,13 @@ button:hover:before,button:hover:after{
   }
   
   .btn-green {
-    background-color: #70d260;
+    background-color: #fc466b !important;
+    transition: 800ms ease all;
+    transform: scale(1.2);
   }
   .btn-green:active {
     /* Override the active background for #restart */
-    background-color: #60c050 !important;
+    background-color: #2115c1 !important;
   }
   
   /******  HELPER CLASSES  ******/
@@ -307,7 +315,7 @@ button:hover:before,button:hover:after{
       display: none;
     }
     #container{
-      width: 110%;
+      width: 108%;
       height: 120%;
     }
   }

@@ -60,15 +60,29 @@ function insertSymbol(element, symbol) {
     $("#" + element.id).addClass("player-two"); // Color enemy symbol differently
   $("#" + element.id).addClass("cannotuse");  // Show a "disabled" cursor on already occupied cells
   
-  checkWinConditions(element);
+  checkWinConditions(element,cpuEnabled);
   turn++;
+  if(turn%2 === 0) {
+    $("#turn-indicator").text("Player 1's turn");
+  }
+  else {
+    if(cpuEnabled===true){
+      $("#turn-indicator").text("CPU's turn");
+    }
+    else{
+      $("#turn-indicator").text("Player 2's turn");
+
+    }
+  }
   // Game end - If somebody has won or all cells are filled
   if(win || turn > 8) {
     $("#restart").addClass("btn-green");  // Highlights "restart" button
     $(".cell").addClass("cannotuse");  // Tells visually you can't interact anymore with the game grid
+    // $("#turn-indicator").addClass("transparent");
+
   }
   else if(cpuEnabled && turn%2 !== 0) {
-    cpuTurn();
+    setTimeout(cpuTurn, 1000); // For some delay 
   }
 }
 
@@ -94,10 +108,28 @@ function restartGame() {
   $(".cell").removeClass("cannotuse");
   $(".cell").removeClass("player-two");
   $("#restart").removeClass("btn-green");
+  $("#turn-indicator").text("Player 1's turn");
+
 }
 
+
+// function displayWinner(win,cpuEnabled){
+
+//   if(turn%2!=0) {
+    // $("#turn-indicator").text("Player 1 WINS");
+//   }
+//   else {
+//     if(cpuEnabled===true){
+//       $("#turn-indicator").text("CPU' Wins");
+//     }
+//     else{
+//       $("#turn-indicator").text("Player 2 WINS");
+
+//     }
+//   }
+// }
 /* Check if there's a winning combination in the grid (3 equal symbols in a row/column/diagonal) */
-function checkWinConditions(element) {
+function checkWinConditions(element,cpuEnabled) {
   // Retrieve cell coordinates from clicked button id
   row = element.id[4];
   column = element.id[5];
@@ -115,6 +147,8 @@ function checkWinConditions(element) {
       // Highlight the cells that form a winning combination
       $("#cell" + i + column).addClass("wincell");
     }
+    // $("#turn-indicator").text("WINS");
+    // displayWinner(win,cpuEnabled);
     return; // Exit from the function, to prevent "win" to be set to false by other checks
   }
   
@@ -130,6 +164,8 @@ function checkWinConditions(element) {
     for(var i=0; i<3; i++) {
       $("#cell" + row + i).addClass("wincell");
     }
+    $("#turn-indicator").text("WINS");
+
     return;
   }
   
@@ -145,6 +181,8 @@ function checkWinConditions(element) {
     for(var i=0; i<3; i++) {
       $("#cell" + i + i).addClass("wincell");
     }
+    $("#turn-indicator").text("WINS");
+
     return;
   }
   
@@ -158,23 +196,39 @@ function checkWinConditions(element) {
         $("#cell02").addClass("wincell");
         $("#cell11").addClass("wincell");
         $("#cell20").addClass("wincell");
+  
       }
     }
   }
 }
 
-// Simple AI (clicks a random empty cell)
-function cpuTurn() {
-  var ok = false;
+// // Simple AI (clicks a random empty cell)
+// function cpuTurn() {
+//   var ok = false;
   
-  while(!ok) {
-    row = Math.floor(Math.random() * 3);
-    column = Math.floor(Math.random() * 3);
-    if( $("#cell"+row+column).text() === "" ) {
-      // We have found it! Stop looking for an empty cell
-      ok = true;
+//   while(!ok) {
+//     row = Math.floor(Math.random() * 3);
+//     column = Math.floor(Math.random() * 3);
+//     if( $("#cell"+row+column).text() === "" ) {
+//       // We have found it! Stop looking for an empty cell
+//       ok = true;
+//     }
+//   }
+  
+//   $("#cell"+row+column).click(); // Emulate a click on the cell
+// }
+
+function cpuTurn() {
+  var foundEmpty = false;
+  
+  while(!foundEmpty) {
+    var row = Math.floor(Math.random() * 3);
+    var column = Math.floor(Math.random() * 3);
+    var cell = document.getElementById("cell"+row+column);
+    if( cell.textContent === "" ) {
+      foundEmpty = true;
     }
   }
   
-  $("#cell"+row+column).click(); // Emulate a click on the cell
+  cell.click();
 }
