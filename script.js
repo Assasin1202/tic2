@@ -12,22 +12,28 @@ $(document).ready(function() {
   $("#choose-x").on("click", function() {
     playerSymbol = "𝒳";
     enemySymbol = "𝒪";
+    // $("#button-id").on("click", function() {
+   $("#button-click-sound")[0].play();
+    
 
     $("#intro-screen").fadeOut(500, showEnemyScreen);
   });
   $("#choose-o").on("click", function() {
     playerSymbol = "𝒪";
     enemySymbol = "𝒳";
+    $("#button-click-sound")[0].play();
     $("#intro-screen").fadeOut(500, showEnemyScreen);
   });
   
   // Enemy screen buttons
   $("#choose-human").on("click", function() {
     cpuEnabled = false;
+    $("#button-click-sound")[0].play();
     startGame();
   });
   $("#choose-cpu").on("click", function() {
     cpuEnabled = true;
+    $("#button-click-sound")[0].play();
     startGame();
   });
   
@@ -40,8 +46,10 @@ $(document).ready(function() {
     if(!win && this.innerHTML === "") {
       if(turn%2 === 0) { // Even number = player turn
         insertSymbol(this, playerSymbol);
+        $("#button-click-sound")[0].play();
       }
       else { // Odd number = enemy turn
+        $("#button-click-sound-3")[0].play();
         insertSymbol(this, enemySymbol);
       }
     }
@@ -76,6 +84,8 @@ function insertSymbol(element, symbol) {
   }
   // Game end - If somebody has won or all cells are filled
   if(win || turn > 8) {
+    $("#button-click-sound-2")[0].play();
+
     $("#restart").addClass("btn-green");  // Highlights "restart" button
     $(".cell").addClass("cannotuse");  // Tells visually you can't interact anymore with the game grid
     // $("#turn-indicator").addClass("transparent");
