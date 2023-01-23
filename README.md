@@ -1,2 +1,2 @@
 # tic2
-Aane do 
+Software Engineering project - Tic-Tac-Toe game using html , css and javascript 
