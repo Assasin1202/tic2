@@ -1,10 +1,14 @@
-var playerSymbol;
-var enemySymbol;
-var win;  // TRUE if somebody won the game
-var turn; // Number of the current turn
+// Declaring variables
 var row, column;  // Will contain "coordinates"for a specific cell
 var cpuEnabled = true;  // Set this to false to play against a human
 
+var playerSymbol; // It will Store the symbol of the player 
+var enemySymbol; // It will store the symbol of the enemy
+var win;  // TRUE if somebody won the game
+var turn=0; // Number of the current turn
+
+
+// The function is called automatically when the game starts 
 $(document).ready(function() {
   // fadeIn(500);
   // Intro screen buttons
@@ -29,13 +33,18 @@ $(document).ready(function() {
   $("#choose-human").on("click", function() {
     cpuEnabled = false;
     $("#button-click-sound")[0].play();
-    startGame();
+
+    // This will fade the present screen , show the game screen and start the game 
+    $("#enemy-screen").fadeOut(300, showGameScreen);
+    restartGame();
   });
   $("#choose-cpu").on("click", function() {
     cpuEnabled = true;
     $("#button-click-sound")[0].play();
-    startGame();
+    $("#enemy-screen").fadeOut(300, showGameScreen);
+    restartGame();
   });
+  
   
   // Game screen buttons
   $("#restart").on("click", function() {
@@ -45,12 +54,12 @@ $(document).ready(function() {
     // If nobody has won yet and clicked cell is empty
     if(!win && this.innerHTML === "") {
       if(turn%2 === 0) { // Even number = player turn
-        insertSymbol(this, playerSymbol);
+        putSymbol(this, playerSymbol);
         $("#button-click-sound")[0].play();
       }
       else { // Odd number = enemy turn
         $("#button-click-sound-3")[0].play();
-        insertSymbol(this, enemySymbol);
+        putSymbol(this, enemySymbol);
       }
     }
   });
@@ -60,8 +69,31 @@ $(document).ready(function() {
 /******  FUNCTIONS  ******/
 
 
+
+function showGameScreen() {
+  $("#game-screen").fadeIn(300);
+}
+function showEnemyScreen() {
+  $("#enemy-screen").fadeIn(300);
+}
+
+
+/* Sets everything to its default value */
+
+function restartGame() {
+  turn = 0;
+  win = false;
+  $(".cell").text("");
+  $(".cell").removeClass("wincell");
+  $(".cell").removeClass("cannotuse");
+  $(".cell").removeClass("player-two");
+  $("#restart").removeClass("btn-green");
+  $("#turn-indicator").text("Player 1's turn");
+
+}
+
 // Inserts a symbol in the clicked cell
-function insertSymbol(element, symbol) {
+function putSymbol(element, symbol) {
   element.innerHTML = symbol;
   
   if(symbol === enemySymbol)
@@ -96,32 +128,23 @@ function insertSymbol(element, symbol) {
   }
 }
 
-/* Changes screen with a fade effect */
-function startGame() {
-  /* Shows the game screen when the intro screen is completely hidden */
-  $("#enemy-screen").fadeOut(300, showGameScreen);
-  restartGame();
-}
-function showGameScreen() {
-  $("#game-screen").fadeIn(300);
-}
-function showEnemyScreen() {
-  $("#enemy-screen").fadeIn(300);
-}
 
-/* Sets everything to its default value */
-function restartGame() {
-  turn = 0;
-  win = false;
-  $(".cell").text("");
-  $(".cell").removeClass("wincell");
-  $(".cell").removeClass("cannotuse");
-  $(".cell").removeClass("player-two");
-  $("#restart").removeClass("btn-green");
-  $("#turn-indicator").text("Player 1's turn");
 
+
+function cpuTurn() {
+  var foundEmpty = false;
+  
+  while(!foundEmpty) {
+    var row = Math.floor(Math.random() * 3);
+    var column = Math.floor(Math.random() * 3);
+    var cell = document.getElementById("cell"+row+column);
+    if( cell.textContent === "" ) {
+      foundEmpty = true;
+    }
+  }
+  
+  cell.click();
 }
-
 
 // function displayWinner(win,cpuEnabled){
 
@@ -138,6 +161,7 @@ function restartGame() {
 //     }
 //   }
 // }
+
 /* Check if there's a winning combination in the grid (3 equal symbols in a row/column/diagonal) */
 function checkWinConditions(element,cpuEnabled) {
   // Retrieve cell coordinates from clicked button id
@@ -212,33 +236,5 @@ function checkWinConditions(element,cpuEnabled) {
   }
 }
 
-// // Simple AI (clicks a random empty cell)
-// function cpuTurn() {
-//   var ok = false;
-  
-//   while(!ok) {
-//     row = Math.floor(Math.random() * 3);
-//     column = Math.floor(Math.random() * 3);
-//     if( $("#cell"+row+column).text() === "" ) {
-//       // We have found it! Stop looking for an empty cell
-//       ok = true;
-//     }
-//   }
-  
-//   $("#cell"+row+column).click(); // Emulate a click on the cell
-// }
+// Javascript ends
 
-function cpuTurn() {
-  var foundEmpty = false;
-  
-  while(!foundEmpty) {
-    var row = Math.floor(Math.random() * 3);
-    var column = Math.floor(Math.random() * 3);
-    var cell = document.getElementById("cell"+row+column);
-    if( cell.textContent === "" ) {
-      foundEmpty = true;
-    }
-  }
-  
-  cell.click();
-}

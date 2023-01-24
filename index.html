@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+    <!-- html code so that it can be viewed on all screens according to their device widths -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,16 +10,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-
+    
+    <!-- Adding sounds  -->
     <audio id="button-click-sound" src="click_sound.wav"></audio>
     <audio id="button-click-sound-2" src="win_sound.wav"></audio>
     <audio id="button-click-sound-3" src="click_sound_enemy.mp3"></audio>
-
+ <!-- Title of the game  -->
     <title>Tic Tac Toe</title>
+    <!-- Linking with css file -->
     <link rel="stylesheet" type="text/css" href="style.css">
 
 
 </head>
+
+
 <body>
 
     <!--BODY  START  -->
@@ -40,7 +46,7 @@
         
       <div id="game-screen" class="center hidden contents">
         <div id="turn-indicator">Player 1's turn</div>
-        <!-- Every cell has an id "cell" followed by cell row and cell column -->
+        <!-- Every cell has an id "cell" followed by cell row and cell column . They represent the tiles of the board -->
         <table class="center">
           <tr>
             <td>
@@ -80,6 +86,8 @@
       <div>
     </div>    
 </div>
+
+<!-- The footer -->
 <footer>
   <div class="bottom-container">
     <div class="made-with">Made with</div>
@@ -89,7 +97,9 @@
   </div>
 </footer>
   <!-- Body end  -->
-   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Linking with js file -->
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
    <script src="script.js"></script>
 </body>
 </html>
